@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>TODO CRUD APP</title>
+</head>
+<body>
+    <div class="app-container">
+        <h2 style="display: flex; justify-content: center;">TODO App</h2>
+        <div class="task-input-container">
+            <!-- <input type="text" id="task-input" placeholder="Add New Task"> -->
+            <!-- <div id="task-input"></div> -->
+            <h3 id="add-new-btn">Add New Task +</h3>
+          </div>
+            <form action="" class="no-display">
+              <label for="t-title" class="t-title">Task Title:
+                <input type="text" id="t-title" name="t-title" placeholder="Enter a Title">
+                <p class="title-error"></p>
+              </label>
+              <label for="t-date">Due Date:
+                <input type="date" id="t-date" name="t-date">
+              </label>
+              <label for="t-desc">Task Description:
+                <textarea name="t-desc" id="t-desc" cols="30" rows="5"></textarea>
+              </label>
+              <div class="form-buttons-container">
+                <div form-btn id="close-form">Close</div>
+                <input form-btn type="submit" value="Submit">
+              </div>              
+            </form>
+        <div class="task-display-container"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="./bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/js/bootstrap.js"></script>
+    <script src="./bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

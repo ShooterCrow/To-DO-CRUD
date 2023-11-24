@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    z-index: 0;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    display: none !important;
+}
+
+.task-input-container {
+    display: flex;
+    height: 20px;
+    align-items: center;
+    border: none;
+    width: 200px;
+    cursor: pointer;
+}
+
+#task-input {
+    border: none;
+    background-color: rgba(33, 33, 100, 0.267);
+    padding: 2px 21px;
+    width: inherit;
+    font-size: 14px;
+    color: rgb(97, 97, 97);
+    height: 22px;
+}
+
+#add-new-btn {
+    background-color: rgb(33, 33, 100);
+    padding: 15px 10px;
+    color: aliceblue;
+    border-radius: 10px 10px 0 0;
+    font-size: 15px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.app-container h3 {
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 200px; */
+}
+
+.task-display {
+    border: 2px solid rgba(60, 64, 99, 0.5);
+    margin: 10px 0;
+    padding: 0 10px;
+    background-color: rgba(33, 33, 100, 0.164);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#task-title, #date, .task-body, .edit-btn, .delete-btn {
+    margin: 10px;
+}
+
+#date {
+    color: rgb(126, 126, 126);
+}
+
+.edit-btn, .delete-btn {
+    background-color: rgba(33, 33, 100, 0.267);
+    padding: 3px;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edit-delete {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    flex-direction: column;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    position: absolute;
+    background-color: rgba(33, 33, 100, 0.774);
+    color: aliceblue;
+    padding: 20px;
+    z-index: 99;
+    border-radius: 20px;
+}
+
+#t-title, #t-date, #t-desc {
+    display: block;
+    width: 100%;
+    margin: 7px 0 15px;
+    padding: 7px;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+[form-btn] {
+    margin: 0 10px 0 0;
+    padding: 10px;
+    background-color: rgb(33, 33, 100);
+    border: none;
+    color: aliceblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 3px;
+    /* font-weight: bold; */
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.title-error {
+    color: red;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+
+
+
+.no-display {
+    display: none;
+}
