@@ -15,16 +15,16 @@
             <!-- <div id="task-input"></div> -->
             <h3 id="add-new-btn">Add New Task +</h3>
           </div>
-            <form action="" class="no-display">
+            <form action="" class="no-display form">
               <label for="t-title" class="t-title">Task Title:
                 <input type="text" id="t-title" name="t-title" placeholder="Enter a Title">
                 <p class="title-error"></p>
               </label>
               <label for="t-date">Due Date:
-                <input type="date" id="t-date" name="t-date">
+                <input type="date" id="t-date" name="t-date" required>
               </label>
               <label for="t-desc">Task Description:
-                <textarea name="t-desc" id="t-desc" cols="30" rows="5"></textarea>
+                <textarea name="t-desc" id="t-desc" cols="30" rows="5" required></textarea>
               </label>
               <div class="form-buttons-container">
                 <div form-btn id="close-form">Close</div>
@@ -32,10 +32,22 @@
               </div>              
             </form>
         <div class="task-display-container"></div>
+        <div id="${x.id}" class="edit-form no-display form">
+               <label for="edit-form">Title: 
+                   <input type="text" id="edit-t-title" name="title" value="">
+               </label>
+               <label for="new-date">Date: 
+                   <input type="date" name="new-date" class="new-date" id="edit-t-date" value="">
+               </label>
+               <textarea name="new-desc" class="new-desc" placeholder="123" id="edit-t-desc" value="1213" cols="10" rows="4"></textarea>
+               <div>
+                 <button id="close-edit-form">Close</button>
+                 <button id="submit-edit-form">Edit</button>
+
+               </div>
+       </div>
         </div>
     </div>
     <script src="script.js"></script>
-    <script src="./bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/js/bootstrap.js"></script>
-    <script src="./bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

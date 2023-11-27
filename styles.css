@@ -43,6 +43,7 @@ body::-webkit-scrollbar {
     right: 0;
     margin: 0;
     width: 100%;
+    z-index: 2;
 }
 
 .app-container h3 {
@@ -69,7 +70,7 @@ body::-webkit-scrollbar {
     color: rgb(126, 126, 126);
 }
 
-.edit-btn, .delete-btn {
+.edit-btn, .delete-btn, #submit-edit-form, #close-edit-form {
     background-color: rgba(33, 33, 100, 0.267);
     padding: 3px;
     border-radius: 3px;
@@ -85,7 +86,7 @@ body::-webkit-scrollbar {
 }
 
 
-form {
+.form {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -93,11 +94,14 @@ form {
     background-color: rgba(33, 33, 100, 0.774);
     color: aliceblue;
     padding: 20px;
-    z-index: 99;
-    border-radius: 20px;
+    z-index: 1;
+    border-radius: 20px 20px 0 0;
+    bottom: 35px;
+    left: 0;
+    right: 0;
 }
 
-#t-title, #t-date, #t-desc {
+#t-title, #t-date, #t-desc, #edit-t-title, #edit-t-date, #edit-t-desc {
     display: block;
     width: 100%;
     margin: 7px 0 15px;
