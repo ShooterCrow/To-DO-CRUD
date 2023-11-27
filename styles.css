@@ -149,3 +149,15 @@ body::-webkit-scrollbar {
 .no-display {
     display: none;
 }
+
+.cfb-sefb {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#submit-edit-form, #close-edit-form {
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px dotted ;
+}

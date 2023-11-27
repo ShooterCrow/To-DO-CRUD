@@ -2,6 +2,7 @@
 "use strict"
 let addNewbtn = document.querySelector("#add-new-btn")
 let form = document.querySelector("form")
+let closeForm = document.getElementById("close-form")
 let editor = document.querySelector(".edit-form")
 let editTasTitle = document.getElementById("edit-t-title")
 let editTaskDate = document.getElementById("edit-t-date") 
@@ -13,7 +14,6 @@ let taskDisplay = document.querySelector(".task-display-container")
 let tasTitle = document.getElementById("t-title")
 let taskDate = document.getElementById("t-date") 
 let taskDesc = document.getElementById("t-desc")
-let closeForm
 let titleError = document.querySelector(".title-error")
 
 let taskData = []
@@ -35,6 +35,10 @@ form.addEventListener("submit", (e) => {
     e.preventDefault()
     console.log(e.target.parentElement.children[3])
     formValidation()
+})
+
+closeForm.addEventListener("click", () => {
+    form.classList.toggle("no-display")
 })
 
 // CJECK IF FORM IS EMPTY
@@ -97,21 +101,19 @@ let createForm = () => {
 
 // // STORE NEW TASK
 
+let arrayRand = ["-eas-","-vew-","-qwd-","-qwf-","-qw-","-qwd-"]
 let store = () => {
-    let array = ["eas","vew","qwd","qwf","qw","qwd"]
-    let randSyn
-    array.forEach((x) => {
-       randSyn =  x[Math.floor(Math.random()*array.length)]
-    })
+    
     taskData.unshift({
         title: tasTitle.value,
         date: taskDate.value,
         desc: taskDesc.value,
-        id: "id"+randSyn+Math.floor(Math.random() * 98238972893897)
+        id: "id"+arrayRand[Math.floor(Math.random()*arrayRand.length)]+Math.floor(Math.random() * 98238972893897)
     })
     
     createForm()
     clearForm()
+    console.log(taskData)
     localStorage.setItem("data", JSON.stringify(taskData))
 }
 
@@ -122,15 +124,15 @@ let clearForm = () => {
     
 }
 
-
+let IdClick
 let editData = (e) => {
     form.classList.forEach((x) => {
         // console.log(x)
         if (!(x.includes("no-display"))){
-            console.log(e.parentElement)
             return
     } else {        
         editor.classList.toggle("no-display")
+        IdClick = e.parentElement
     }
     })
     // let editTasTitle = document.getElementById("edit-t-title")
@@ -145,7 +147,7 @@ let editData = (e) => {
     // let submitEditForm = document.getElementById("submit-edit-form")
 
     submitEditForm.addEventListener("click", () => {
-        formSubmitted()
+        updateSubmittedForm(IdClick)
         editor.classList.add("no-display")
     })
 
@@ -158,11 +160,28 @@ let editData = (e) => {
     // deleteData(e)
 }
 
-let deleteData = (e) => {
-    const clickedId = +(e.parentElement.id);
-    taskData.splice(clickedId, 1)
+let updateSubmittedForm = (e) => {
+    let task = taskData.find((x) => x.id === e.id)
+    let index = taskData.findIndex((x) => x.id === task.id)
+
+    taskData[index].title = editTasTitle.value
+    taskData[index].date = editTaskDate.value
+    taskData[index].desc = editTaskDesc.value
+    
     localStorage.setItem("data", JSON.stringify(taskData))
-    e.parentElement.parentElement.remove()
+    taskData.unshift(taskData.splice(index, 1)[0]);
+    createForm()
+
+}
+
+let deleteData = (e) => {
+    const clickedId = e.parentElement.id;
+    let i = taskData.findIndex((x) => x.id === clickedId)
+    taskData.splice(i, 1)
+    console.log(e.parentElement)
+    // taskData.splice(clickedId, 1)
+    localStorage.setItem("data", JSON.stringify(taskData))
+    e.parentElement.remove()
     createForm()
     emptyFormC()
 }
